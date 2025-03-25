@@ -1,1 +1,1 @@
-scrapy crawl anime_details -O ../data/anime_full_details.json
+scrapy crawl anime_details -O /home/kananmzade0/Projects/pythonProjects/MALScraper/mal_scraper/data/anime_full_details.json
