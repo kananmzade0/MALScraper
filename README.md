@@ -19,17 +19,14 @@ Built with **Scrapy**, **Bash automation**, and structured with plans for **vect
 ## 📂 Directory Structure
 
 ```plaintext
-mal_scraper/
-├── data/                # Output folder for JSON files & cleaned datasets
-├── scripts/             # Automation scripts (bash)
-├── spiders/             # Scrapy spiders (list + details)
-├── venv/                # Virtual environment
-├── merged.csv           # Merged output file (post-cleaning)
-├── cleaning.py          # Data cleaning utility
-├── cleaning.ipynb       # Data cleaning notebook
-├── requirements.txt     # Python dependencies
-├── scrapy.cfg           # Scrapy project config
-└── README.md            # This file
+MALScraper
+├── data/               # Where data is stored and manipulated
+├── mal_scraper/        # Scrapy files are stored here
+├── scripts/            # Scripts to run cron jobs if deployed
+├── .gitignore 
+├── README.md 
+├── requirements.txt
+└── scrapy.cfg          # Scrapy configuration file
 ```
 
 ## ⚙️ Tech Stack
@@ -45,7 +42,7 @@ mal_scraper/
 
 1. **`scrape_anime_list.sh`** – Scrapes top anime list & outputs JSON.
 2. **`scrape_anime_details.sh`** – Scrapes full anime details for each link found.
-3. **Data cleaning** – Done via `cleaning.py` or Jupyter notebook.
+3. **Data cleaning** – Done via `cleaning.py` and `cleaning.ipynb` Jupyter notebook.
 4. **(Next step)** – Feed into a Vector DB for AI-powered recommendations.
 
 ## 🕷️ Usage
