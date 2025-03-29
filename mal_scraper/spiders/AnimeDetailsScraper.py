@@ -25,7 +25,7 @@ class AnimeDetailsScraper(scrapy.Spider):
             "status": response.xpath('//span[text()="Status:"]/following-sibling::text()').get(),
             "aired": response.xpath('//span[text()="Aired:"]/following-sibling::text()').get(),
             "premiered": response.xpath('//span[text()="Premiered:"]/following-sibling::a/text()').get(),
-            "broadcast": response.xpath('//span[text()="Broadcast:"]/following-sibling::text()').getall(),
+            "broadcast": response.xpath('//span[text()="Broadcast:"]/following-sibling::text()').get(),
             "producers": response.xpath('//span[text()="Producers:"]/following-sibling::a/text()').getall(),
             "licensors": response.xpath('//span[text()="Licensors:"]/following-sibling::a/text()').getall(),
             "studios": response.xpath('//span[text()="Studios:"]/following-sibling::a/text()').getall(),
