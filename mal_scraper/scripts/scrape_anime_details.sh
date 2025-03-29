@@ -1,1 +1,0 @@
-scrapy crawl anime_details -O ../data/anime_full_details.json

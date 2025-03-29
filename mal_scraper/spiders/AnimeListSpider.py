@@ -2,9 +2,9 @@ import scrapy
 
 class AnimeListSpider(scrapy.Spider):
     name = "anime_list"
-
+    limit = 0
     def start_requests(self):
-        self.limit = 0
+
         yield scrapy.Request(url=f"https://myanimelist.net/topanime.php?limit={self.limit}", callback=self.parse)
 
     def parse(self, response):
