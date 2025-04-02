@@ -59,6 +59,9 @@ def change_types(df: pd.DataFrame) -> pd.DataFrame:
         df[i] = df[i].str.replace("#", "").str.replace(",", "")
         df[i] = pd.to_numeric(df[i], errors="coerce") # coerce means that if it can't convert it, it will set it to NaN
     return df
+def remove_y_columns(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.drop(columns=['title_y', 'link_y', 'score_y'])
+    return df
 
 def clean_data(df: pd.DataFrame = None,
                save: bool = True) -> pd.DataFrame:
@@ -66,6 +69,7 @@ def clean_data(df: pd.DataFrame = None,
     df = df.drop_duplicates(subset=['id'])
     df = replace_whitespace(df)
     df = change_types(df)
+    df = remove_y_columns(df)
     df = clean_list_like_columns(df)
 
     if save:
