@@ -1,5 +1,7 @@
 import pandas as pd
 import logging
+
+logging.basicConfig(level=logging.INFO)
 # Initlal import of data
 def import_data():
     df1 = pd.read_json("./data/anime_full_details.json")
@@ -45,7 +47,7 @@ def clean_list_like_columns(df: pd.DataFrame) -> pd.DataFrame:  # TODO: Write te
     for col in list_like_columns:
         df[col] = df[col].apply(lambda x: pd.NA if is_junk_list(x) else x)  
 
-    df['broadcast'] = df['broadcast'].explode()
+    df['broadcast'] = df['broadcast'].explode() #Needs to be removed after next scraping session
 
     return df
 def replace_whitespace(df: pd.DataFrame) -> pd.DataFrame:
@@ -63,8 +65,7 @@ def remove_y_columns(df: pd.DataFrame) -> pd.DataFrame:
     df = df.drop(columns=['title_y', 'link_y', 'score_y'])
     return df
 
-def clean_data(df: pd.DataFrame = None,
-               save: bool = True) -> pd.DataFrame:
+def clean_data(save: bool = False) -> pd.DataFrame:
     df = merge_dataframes()
     df = df.drop_duplicates(subset=['id'])
     df = replace_whitespace(df)
